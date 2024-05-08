@@ -1,0 +1,36 @@
+{
+  "name": "sudoku-app",
+  "version": "1.0.0",
+  "description": "Just another sudoku app",
+  "main": "src/main.js",
+  "type": "module",
+  "config": {
+    "entry": "./src/main.js"
+  },
+  "scripts": {
+    "app": "node $npm_package_config_entry",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sudoku"
+  ],
+  "author": "WaterGenie35",
+  "license": "MIT",
+  "engines": {
+    "npm": "10.5.0",
+    "node": "v20.12.1"
+  },
+  "dependencies": {
+    "compression": "1.7.4",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "helmet": "7.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.2.0",
+    "@stylistic/eslint-plugin": "2.0.0",
+    "eslint": "8.57.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsdoc": "48.2.3"
+  }
+}

@@ -1,0 +1,424 @@
+env:
+  browser: true
+  node: true
+
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+
+extends:
+  - eslint:recommended
+  - plugin:import/recommended
+
+plugins:
+  - import
+  - '@stylistic/eslint-plugin'
+
+# Use explicit options
+# Categorises based on docs
+rules:
+  # https://eslint.org/docs/v8.x/rules/
+  array-callback-return: [ error, {
+      allowImplicit: false,
+      checkForEach: false,
+      allowVoid: false
+    }
+  ]
+  constructor-super: error
+  for-direction: error
+  getter-return: error
+  no-async-promise-executor: error
+  no-await-in-loop: error
+  no-class-assign: error
+  no-compare-neg-zero: error
+  no-cond-assign: [ error, except-parens ]
+  no-const-assign: error
+  no-constant-binary-expression: error
+  no-constant-condition: [ error, { checkLoops: true } ]
+  no-constructor-return: error
+  no-control-regex: error
+  no-debugger: error
+  no-dupe-args: error
+  no-dupe-class-members: error
+  no-dupe-else-if: error
+  no-dupe-keys: error
+  no-duplicate-case: error
+  no-duplicate-imports: off # in favour of import/no-duplicates
+  no-empty-character-class: error
+  no-empty-pattern: [ error, { allowObjectPatternsAsParameters: false } ]
+  no-ex-assign: error
+  no-fallthrough: [ error, {
+      commentPattern: /falls?\s?through/i,
+      allowEmptyCase: true
+    }
+  ]
+  no-func-assign: error
+  no-import-assign: error
+  no-inner-declarations: [ error, functions ]
+  no-invalid-regexp: [ error, { allowConstructorFlags:  [] } ]
+  no-irregular-whitespace: [ error, { skipStrings: true } ]
+  no-loss-of-precision: error
+  no-misleading-character-class: error
+  no-new-native-nonconstructor: error
+  no-new-symbol: error
+  no-obj-calls: error
+  no-promise-executor-return: [ error, { allowVoid: false } ]
+  no-prototype-builtins: error
+  no-self-assign: [ error, { props: true } ]
+  no-self-compare: error
+  no-setter-return: error
+  no-sparse-arrays: error
+  no-template-curly-in-string: error
+  no-this-before-super: error
+  no-undef: [ error, { typeof: false } ]
+  no-unexpected-multiline: error
+  no-unmodified-loop-condition: error
+  no-unreachable: error
+  no-unreachable-loop: [ error, { ignore: [] } ]
+  no-unsafe-finally: error
+  no-unsafe-negation: [ error, { enforceForOrderingRelations: true } ]
+  no-unsafe-optional-chaining: [ error, { disallowArithmeticOperators: false } ]
+  no-unused-private-class-members: error
+  no-unused-vars: [ error, {
+      vars: all,
+      varsIgnorePattern: '',
+      args: after-used,
+      # "next" for express route handler
+      argsIgnorePattern: 'next',
+      caughtErrors: none,
+      caughtErrorsIgnorePattern: '',
+      destructuredArrayIgnorePattern: '',
+      ignoreRestSiblings: false
+    }
+  ]
+  no-use-before-define: [ error, {
+      functions: true,
+      classes: true,
+      variables: false,
+      allowNamedExports: false
+    }
+  ]
+  no-useless-backreference: error
+  object-shorthand: [ error, never ]
+  require-atomic-updates: [ error, { allowProperties: false } ]
+  use-isnan: [ error, {
+      enforceForSwitchCase: true,
+      enforceForIndexOf: false
+    }
+  ]
+  valid-typeof: [ error, { requireStringLiterals: true } ]
+
+  # https://eslint.style/rules
+  # Note: use something else next time; inconsistent API and docs, also has typos
+  '@stylistic/array-bracket-newline': [ error, {
+      multiline: true,
+      minItems: null
+    }
+  ]
+  '@stylistic/array-bracket-spacing': [ error, always, {
+      objectsInArrays: false,
+      arraysInArrays: false
+    }
+  ]
+  '@stylistic/array-element-newline': [ error, {
+      multiline: true,
+      minItems: null
+    }
+  ]
+  '@stylistic/arrow-parens': [ error, always ]
+  '@stylistic/arrow-spacing': [ error, {
+      before: true,
+      after: true
+    }
+  ]
+  '@stylistic/block-spacing': [ error, always ]
+  '@stylistic/brace-style': [ error, 1tbs ]
+  '@stylistic/comma-dangle': [ error, never ]
+  '@stylistic/comma-spacing': [ error, {
+      before: false,
+      after: true
+    }
+  ]
+  '@stylistic/comma-style': [ error, last ]
+  '@stylistic/computed-property-spacing': [ error, never, { enforceForClassMembers: true } ]
+  '@stylistic/dot-location': [ error, property ]
+  '@stylistic/eol-last': [ error, always ]
+  '@stylistic/function-call-argument-newline': off
+  '@stylistic/function-call-spacing': [ error, never ]
+  '@stylistic/function-paren-newline': [ error, multiline ]
+  '@stylistic/generator-star-spacing': [ error, {
+      before: true,
+      after: false
+    }
+  ]
+  '@stylistic/implicit-arrow-linebreak': [ error, beside ]
+  '@stylistic/indent': [ error, 2 ]
+  '@stylistic/indent-binary-ops': [ error, 2 ]
+  '@stylistic/jsx-child-element-spacing': off
+  '@stylistic/jsx-closing-bracket-location': [ error, {
+      nonEmpty: tag-aligned,
+      selfClosing: tag-aligned
+    }
+  ]
+  '@stylistic/jsx-closing-tag-location': error
+  '@stylistic/jsx-curly-brace-presence': off
+  '@stylistic/jsx-curly-newline': [ error, {
+      multiline: consistent,
+      singleline: consistent
+    }
+  ]
+  '@stylistic/jsx-curly-spacing': [ error, {
+      when: never,
+      attributes: true,
+      children: true
+    }
+  ]
+  '@stylistic/jsx-equals-spacing': [ error, never ]
+  '@stylistic/jsx-first-prop-new-line': [ error, multiline-multiprop ]
+  '@stylistic/jsx-indent': [ error, 2, {
+      checkAttributes: false,
+      indentLogicalExpressions: false
+    }
+  ]
+  '@stylistic/jsx-indent-props': [ error, {
+      indentMode: 2,
+      ignoreTernaryOperator: false
+    }
+  ]
+  '@stylistic/jsx-max-props-per-line': off
+  '@stylistic/jsx-newline': off
+  '@stylistic/jsx-one-expression-per-line': off
+  '@stylistic/jsx-pascal-case': [ error, {
+      allowAllCaps: false,
+      allowLeadingUnderscore: false,
+      allowNamespace: false,
+      ignore: []
+    }
+  ]
+  '@stylistic/jsx-props-no-multi-spaces': error
+  '@stylistic/jsx-quotes': off
+  '@stylistic/jsx-self-closing-comp': [ error, {
+      component: true,
+      html: true
+    }
+  ]
+  '@stylistic/jsx-sort-props': off
+  '@stylistic/jsx-tag-spacing': [ error, {
+      closingSlash: never,
+      beforeSelfClosing: always,
+      afterOpening: never,
+      beforeClosing: allow
+    }
+  ]
+  '@stylistic/jsx-wrap-multilines': [ error, {
+      declaration: parens,
+      assignment: parens,
+      return: parens,
+      arrow: parens,
+      condition: ignore,
+      logical: ignore,
+      prop: ignore
+    }
+  ]
+  '@stylistic/key-spacing': [ error, {
+      beforeColon: false,
+      afterColon: true,
+      mode: strict,
+      align: {
+        beforeColon: false,
+        afterColon: true,
+        on: colon,
+        mode: strict
+      }
+    }
+  ]
+  '@stylistic/keyword-spacing': [ error, {
+      before: true,
+      after: true,
+      overrides: {}
+    }
+  ]
+  '@stylistic/linebreak-style': [ error, unix ]
+  '@stylistic/lines-around-comment': [ error, {
+      beforeBlockComment: true,
+      allowBlockStart: true
+    }
+  ]
+  '@stylistic/lines-between-class-members': [ error, {
+      enforce: [ {
+          blankLine: always,
+          prev: field,
+          next: method
+        }
+      ]
+    }
+  ]
+  '@stylistic/max-len': [ error, {
+      code: 120,
+      tabWidth: 2,
+      ignorePattern: "",
+      ignoreComments: true,
+      ignoreTrailingComments: true,
+      ignoreUrls: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true,
+      ignoreRegExpLiterals: true
+    }
+  ]
+  '@stylistic/max-statements-per-line': off
+  '@stylistic/member-delimiter-style': [ error, {
+      multiline: {
+        delimiter: semi,
+        requireLast: true
+      },
+      singleline: {
+        delimiter: semi,
+        requireLast: true
+      },
+      multilineDetection: brackets
+    }
+  ]
+  '@stylistic/multiline-ternary': off
+  '@stylistic/new-parens': [ error, always ]
+  '@stylistic/newline-per-chained-call': off
+  '@stylistic/no-confusing-arrow': [ error, {
+      allowParens: true,
+      onlyOneSimpleParam: false
+    }
+  ]
+  '@stylistic/no-extra-parens': [ error, all, {
+      nestedBinaryExpressions: true
+    }
+  ]
+  '@stylistic/no-extra-semi': error
+  '@stylistic/no-floating-decimal': error
+  '@stylistic/no-mixed-operators': [ error, {
+      groups: [],
+      allowSamePrecedence: false
+    }
+  ]
+  '@stylistic/no-mixed-spaces-and-tabs': [ error, smart-tabs ]
+  '@stylistic/no-multi-spaces': [ error, {
+      ignoreEOLComments: false,
+      exceptions: { Property: true },
+      includeTabs: true
+    }
+  ]
+  '@stylistic/no-multiple-empty-lines': [ error, {
+      max: 5,
+      maxEOF: 0, # results in exactly 1 empty line EOF with the eol-last rule
+      maxBOF: 0
+    }
+  ]
+  '@stylistic/no-tabs': [ error, { allowIndentationTabs: false } ]
+  '@stylistic/no-trailing-spaces': error
+  '@stylistic/no-whitespace-before-property': error
+  '@stylistic/nonblock-statement-body-position': [ error, beside, { overrides: {} } ]
+  '@stylistic/object-curly-newline': [ error, { consistent: true } ]
+  '@stylistic/object-curly-spacing': [ error, always, {
+      arraysInObjects: true,
+      objectsInObjects: true
+    }
+  ]
+  '@stylistic/object-property-newline': off
+  '@stylistic/one-var-declaration-per-line': off
+  '@stylistic/operator-linebreak': [ error, after, {
+      overrides: {
+        ?: before,
+        :: before
+      }
+    }
+  ]
+  '@stylistic/padded-blocks': off
+  '@stylistic/padding-line-between-statements': off
+  '@stylistic/quote-props': off
+  '@stylistic/quotes': off # in favour of single quote iff syntax-sensitive
+  '@stylistic/rest-spread-spacing': [ error, never ]
+  '@stylistic/semi': [ error, always, {
+      omitLastInOneLineBlock: false,
+      omitLastInOneLineClassBody: false
+    }
+  ]
+  '@stylistic/semi-spacing': [ error, {
+      before: false,
+      after: true
+    }
+  ]
+  '@stylistic/semi-style': [ error, last ]
+  '@stylistic/space-before-blocks': [ error, {
+      functions: always,
+      keywords: always,
+      classes: always
+    }
+  ]
+  '@stylistic/space-before-function-paren': [ error, {
+      anonymous: always,
+      named: always,
+      asyncArrow: always
+    }
+  ]
+  '@stylistic/space-in-parens': [ error, never ]
+  '@stylistic/space-infix-ops': [ error, { int32Hint: false } ]
+  '@stylistic/space-unary-ops': [ error, {
+      words: true,
+      nonwords: false,
+      overrides: {}
+    }
+  ]
+  '@stylistic/spaced-comment': [ error, always, {
+      exceptions: [ '-', '*' ],
+      markers: []
+    }
+  ]
+  '@stylistic/switch-colon-spacing': [ error, {
+      before: false,
+      after: true
+    }
+  ]
+  '@stylistic/template-curly-spacing': [ error, always ]
+  '@stylistic/template-tag-spacing': [ error, never ]
+  '@stylistic/type-annotation-spacing': [ error, {
+      before: false,
+      after: true
+    }
+  ]
+  '@stylistic/type-generic-spacing': error
+  '@stylistic/type-named-tuple-spacing': error
+  '@stylistic/wrap-iife': [ error, outside ]
+  '@stylistic/wrap-regex': error
+  '@stylistic/yield-star-spacing': [ error, {
+      before: true,
+      after: false
+    }
+  ]
+
+  # https://github.com/import-js/eslint-plugin-import
+  import/exports-last: error
+  import/first: error
+  import/newline-after-import: [ error, {
+      count: 1,
+      considerComments: true
+    }
+  ]
+  import/no-duplicates: [ error, { considerQueryString: false } ]
+  import/order: [ error, {
+      newlines-between: always,
+      groups: [
+        builtin,
+        external,
+        [ internal, parent, sibling, index ],
+        object,
+        type
+      ],
+      alphabetize: {
+        order: asc,
+        caseInsensitive: true
+      }
+    }
+  ]
+
+settings:
+  import/extensions: [
+    '.js',
+    '.jsx'
+  ]

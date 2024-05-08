@@ -1,0 +1,15 @@
+{
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "eslint.enable": true,
+    "eslint.validate": [
+        "javscript"
+    ],
+    "js/ts.implicitProjectConfig.strictFunctionTypes": true
+}

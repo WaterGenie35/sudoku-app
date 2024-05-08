@@ -1,0 +1,15 @@
+# Environment
+.env
+
+# Vscode
+# https://stackoverflow.com/a/57749909
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Node
+node_modules
+
+# DB
+**/*.db
